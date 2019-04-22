@@ -1,0 +1,11 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in posts %}
+<div class="border p-3 mb-3">
+    <img class="img-fluid rounded-circle border m-2" src="" alt="صورة الناشر" width="70px">
+    <spa class="text-secondary"> نشر في {{post.post_date|date:'d-m-Y'}}</span>
+    <h3><a class="text-dark" href="{% url 'detail' post.id %}">{{post.title}}</a></h3>
+    <p>{{post.content}}</p>
+</div>
+{% endfor %}
+{% endblock content %}
