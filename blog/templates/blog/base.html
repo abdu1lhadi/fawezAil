@@ -2,7 +2,7 @@
 {% load post_tag %}
 <!DOCTYPE html>
 <!-- ,,, Fixed tag page ,,, -->
-<html lang="ar">
+<html lang="">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,135 +10,189 @@
     <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
     <link rel="shortcut icon" href="{% static 'blog/images/favicon.ico'%}">
     {% if title %}
-    <title>جوالي | {{title}}</title>
+    <title>FTE | {{title}}</title>
     {% else %}
-    <title>جوالي</title>
+    <title>FTE</title>
     {% endif %}
 </head>
 <body>
-    <header>
+    <header class="container-fluid">
         <!--Start NavBar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#"><img src="{% static 'blog/images/mim-logo.png' %}" alt="شعار مدونة"
-                width="30px" >
-                جوالي</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+        <nav class="navbar navbar-expand-lg navbar-light row p-0 bg-secondary">
+            <a class="navbar-brand col-md-2 bg-light m-0 p-3" href="{% url 'home' %}"><img src="{% static 'blog/images/final logo www.png' %}"
+                 alt="Logo FTE" width="100%">
+            </a>
             
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="{% url 'home' %}">الرئيسية <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    جوالاتي
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">هواوي</a>
-                    <a class="dropdown-item" href="#">ايفون</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">مدونة</a>
-                    </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'about' %}">من انا</a>
-                </li>
+            <div class="collapse navbar-collapse col-md-10 p-3" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-3" >
+                    <li class="nav-item active mr-2">
+                        <a class="nav-link" href="{% url 'home' %}">HOME <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item dropdown mr-2">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SERVICES
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">CUSTOMS CLEARANCE</a>
+                            <a class="dropdown-item" href="#">TRANSPORTATION</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">INFORMATIONS</a>
+                        </div>
+                    </li>
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="{% url 'about' %}">ABOUT US</a>
+                    </li>
+                    <li class="nav-item mr-2">
+                            <a class="nav-link" href="{% url 'about' %}">LIST NEWS</a>
+                    </li>
+                    <li class="nav-item mr-2">
+                        <a class="nav-link" href="{% url 'about' %}">CLIENTS</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}">JOB</a>
+                    </li>
+                    
                 </ul>
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">تسجيل الدخول</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">تسجيل</a></li>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">TO CALL</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">TO ORDER</a></li>
                 </ul>
                 
             </div>   
         </nav>
         <!--End NavBar-->
-        
     </header>
-    
-    <section>
-        <div class="container">
-            <div class="row mt-4">
-                <div class="col-md-8">
-                    <!-- This tag is for variable content and is linked from an external file -->
-                    {% block content %}
 
-                    {% endblock content %}
-                </div>
-                <div class="col-md-4">
-                    <div class="card mb-3 p-0">
-                        <h3 class="text-center bg-secondary text-light p-2 mb-0">
-                            اخر التدوينات
-                        </h3>
-                        {% latest_posts %}
+    <!-- Start content -->
+    <section class="d-block">
+        <div class="container-fluid p-0">
+            
+                
+        <!-- This tag is for variable content and is linked from an external file -->
+        {% block content %}
 
-                    </div>
-                    <div class="card mb-3">
-                        <h3 class="text-center bg-secondary text-light p-2">
-                            اخر التعليقات
-                        </h3>
-                        {% latest_comments %}
-                    </div>
-                </div>
-            </div>
+        {% endblock content %}
+                
+           
         </div>
     </section>
+    <!-- End content -->
 
+    <!-- Start Footer -->
     <footer class="bg-secondary">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md">
                     <div class="card-group mt-3">
                         <div class="card m-3">
-                            <h3 class="card-title text-center border-bottom p-2 m-3">من انا</h3>
+                            <h3 class="card-title text-center border-bottom p-2 m-3">ABOUT US</h3>
                             <div class="card-body">
                                 <div class="text-center">
-                                    <img src="{% static 'blog/images/mim-logo.png'%}" alt="شعار مدونة" width="100px">
+                                    <a class="nav-link" href="{% url 'about' %}"><img src="{% static 'blog/images/final logo www.png' %}" alt="شعار مدونة" width="250px"></a>
+                                </div>
+                                <p class="text-justify">
+                                    Fawaz Al Shammari Transportation Establishment FTE-Logistics was 
+                                    established in 1998 as a small inland transportation establishment 
+                                    which has grown to become one of the most leading providers of heavy 
+                                    haulage and special transportation projects in Middle East
+                                </p>
+                                
+                            </div>
+                        </div>
+                        <div class="card m-3">
+                            <h3 class="card-title text-center border-bottom p-2 m-3">Maps</h3>
+                            <div class="card-body">
+                                <div class="btn-toolbar justify-content-center" role="toolbar" aria-label="Toolbar with button groups">
+                                    <div class="btn-group btn-group-sm text-center" role="group" aria-label="First group">
+                                        <button id="dammam" type="button" class="btn btn-secondary">Dammam</button>
+                                        <button id="jed" type="button" class="btn btn-secondary">Jeddah</button>
+                                        <button id="bhrin" type="button" class="btn btn-secondary">Bahrain</button>
+                                    </div>
+                                    <!-- <div class="input-group">
+                                        <div class="input-group-prepend">
+                                        <div class="input-group-text" id="btnGroupAddon2">@</div>
+                                        </div>
+                                        <input type="text" class="form-control" placeholder="Input group example" aria-label="Input group example" aria-describedby="btnGroupAddon2">
+                                    </div> -->
                                 </div>
                                 
-                                انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي
-                                انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي
-                                انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي
-                                انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي انا نص تجريبي
+                                <iframe class="ml-2 mpdammam" 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3573.305512813779!2d50.09454181487185!3d26.413615783345076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49fc9f453937d5%3A0xd918d0b00656ab97!2sTahweel+Al+Rajhi!5e0!3m2!1sen!2ssa!4v1556966572243!5m2!1sen!2ssa"
+                                 width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <iframe class="ml-2 mpjed"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d929.2484361964542!2d39.24629982919376!3d21.311263499115356!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3b4253f722df1%3A0x951f4489e5fd8c2a!2sConcha+Grocery!5e0!3m2!1sen!2ssa!4v1556975571676!5m2!1sen!2ssa"
+                                 width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                                <iframe class="ml-2 mpbhrin"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.8997579341817!2d50.57991407811643!3d26.13481122605209!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e49ac6c69edd79f%3A0xe43a417d3b197a92!2sCastro+Car+Wash!5e0!3m2!1sen!2ssa!4v1556976009725!5m2!1sen!2ssa" 
+                                width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                             </div>
                         </div>
                         <div class="card m-3">
-                            <h3 class="card-title text-center border-bottom p-2 m-3">مواقع هامة</h3>
-                            <div class="card-body">
-                                <ul>
-                                    <li><a class="text-dark" href="#">الموقع الاول</a></li>
-                                    <li><a class="text-dark" href="#">الموقع الثاني</a></li>
-                                    <li><a class="text-dark" href="#">الموقع الثالث</a></li>
-                                    <li><a class="text-dark" href="#">الموقع الرابع</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card m-3">
-                            <h3 class="card-title text-center border-bottom p-2 m-3">وسائل التواصل الاجتماعي</h3>
-                            <h4 class="card-body text-center">
-                                <a class="text-secondary" href="#"><i class="fab fa-facebook"></i></a>
-                                <a class="text-secondary" href="#"><i class="fab fa-twitter"></i></a>
-                                <a class="text-secondary" href="#"><i class="fab fa-instagram"></i></a>
-                                <a class="text-secondary" href="#"><i class="fab fa-youtube"></i></a>
-                                <a class="text-secondary" href="#"><i class="fab fa-telegram"></i></a>
-                                <a class="text-secondary" href="#"><i class="fab fa-linkedin"></i></a>
-                            </h3>
+                            <h3 class="card-title text-center border-bottom p-2 m-3">Social media</h3>
+                            <h2 class="card-body text-center">
+                                <a class="text-secondary" href="https://www.facebook.com/fawaz.alshammari.100?fref=ts"><i class="fab fa-facebook"></i></a>
+                                <a class="text-secondary" href="https://twitter.com/FTE_logistics"><i class="fab fa-twitter"></i></a>
+                                <a class="text-secondary" href="https://www.instagram.com/fte_logistics/"><i class="fab fa-instagram"></i></a>
+                                <a class="text-secondary" href="https://www.youtube.com/watch?v=iu_EjxWoZc4&feature=youtu.be"><i class="fab fa-youtube"></i></a>
+                                <!-- <a class="text-secondary" href="#"><i class="fab fa-telegram"></i></a> -->
+                                <a class="text-secondary" href="https://www.linkedin.com/company/al-shammari-est-"><i class="fab fa-linkedin"></i></a>
+                            </h2>
+                            <h3 class="card-title text-center border-bottom p-2 m-3">Our Other Website</h3>
+                            <h2 class="card-body text-center">
+                                <a class="" href="https://www.fte-heavylift.com/">FTE-HeavyLift</a>
+                            </h2>
+                            
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="row p-4">
+                <div class="col-md text-right p-3">
+                    <small class="text-light">Download FTE-Profile</small>
+                    <a class=" mr-3" href="{% static 'blog/doc/FTE_Profile.pdf' %}"><img src="{% static 'blog/images/pdf.png' %}" alt="PDF"></a>
+                </div>
+                <div class="col-md pl-3">
+                    <img class="w-25" src="{% static 'blog/images/2030.png' %}" alt="2030">
+                </div>
+            </div>
+
+            <hr class="fdordr p-0 m-0">
+
             <div class="row p-2">
                 <div class="col-md text-center">
-                    <small class="text-light">&copy;جميع الحقوق محفوظة</small>
+                    <small class="text-light">All Rights Are Save &copy; Abdulhadi-FTE</small>
                 </div>
             </div>
         </div>
     </footer>
+    <!-- End Footer -->
 
     <script src="{% static 'blog/js/jquery-3.3.1.slim.min.js' %}"></script>
     <script src="{% static 'blog/js/popper.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $("#dammam").click(function(){
+                $(".mpjed").hide();
+                $(".mpbhrin").hide();
+                $(".mpdammam").show();
+                
+            });
+            $("#jed").click(function(){
+                $(".mpdammam").hide();
+                $(".mpbhrin").hide();
+                $(".mpjed").show();
+                
+            });
+            $("#bhrin").click(function(){
+                $(".mpdammam").hide();
+                $(".mpjed").hide();
+                $(".mpbhrin").show();
+                
+            });
+            
+        });
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 from django import forms
 from .models import Comment
 
-class NewComment(forms.ModelForm):
+class NewCustomers(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ('name', 'email' , 'body')
+        fields = ('name', 'email' ,'Nepersnt','Nopersnt', 'body')

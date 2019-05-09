@@ -16,9 +16,11 @@ class Post(models.Model):
         ordering = ('-post_date', )
 
 class Comment(models.Model):
-    name = models.CharField(max_length=50, verbose_name='الاسم')
-    email = models.EmailField(verbose_name='البريد الاكتروني')
-    body = models.TextField(verbose_name='التعليق')
+    name = models.CharField(max_length=50, verbose_name='Company Name')
+    email = models.EmailField(verbose_name='Email')
+    Nepersnt = models.CharField(max_length=50, verbose_name='Person Name')
+    Nopersnt = models.IntegerField(verbose_name='Person Number')
+    body = models.TextField(verbose_name='Order details')
     comment_date = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)
     post = models.ForeignKey(
