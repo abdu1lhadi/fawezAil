@@ -111,7 +111,7 @@
             <spa class="text-secondary"> Posted in {{post.post_date|date:'d-m-Y'}}</span><br>
             {{post.content}}
             </div>
-            <img src="../../static/blog/images/aramco.png" class="border ml-3 w-25" alt="Logo CO">
+            <img src="{% static 'blog/images/aramco.png' %}" class="border ml-3 w-25" alt="Logo CO">
         </div>
         {% endfor %}
         <div class="text-center p-3">

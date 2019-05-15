@@ -18,8 +18,8 @@ class Post(models.Model):
 class Comment(models.Model):
     name = models.CharField(max_length=50, verbose_name='Company Name')
     email = models.EmailField(verbose_name='Email')
-    Nepersnt = models.CharField(max_length=50, verbose_name='Person Name')
-    Nopersnt = models.IntegerField(verbose_name='Person Number')
+    nepersnt = models.CharField(max_length=50, verbose_name='Person Name', default= None)
+    nopersnt = models.CharField(max_length=10, verbose_name='Person Number', default= None)
     body = models.TextField(verbose_name='Order details')
     comment_date = models.DateTimeField(auto_now_add=True)
     active = models.BooleanField(default=False)

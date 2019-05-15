@@ -24,6 +24,10 @@ body{
    
 }
 
+.bg-contant{
+    background-color: #8e8989;
+}
+
 /* end local */
 
 /* Navbar */
@@ -55,7 +59,6 @@ body{
 }
 .CSF:hover{
    background-color: #44B085 !important;
-    
 }
 
 /* Endclin */
@@ -91,6 +94,27 @@ body{
     border: 1px dashed #CCC;
 }
 /* End commit */
+
+/* Start About */
+#fteabout{
+    color: #0C4B33;
+    font-size: 20px;
+}
+
+.hedercolor{
+    color: #0C4B33;
+}
+.iconcolor{
+    color:#f7c01b;
+}
+.pabout{
+    font-size: 18px;
+}
+
+.bg-about{
+    background-color: #FFFFFF;
+}
+/* End About */
 
 /* Start footer */
 .fdordr{
