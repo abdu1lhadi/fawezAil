@@ -1,9 +1,31 @@
 {% load static %}
-{% load post_tag %}
 <!DOCTYPE html>
 <!-- ,,, Fixed tag page ,,, -->
-<html lang="">
+<html>
 <head>
+    <script>
+        $(document).ready(function(){
+            $("#dammam").click(function(){
+                $(".mpjed").hide();
+                $(".mpbhrin").hide();
+                $(".mpdammam").show();
+                
+            });
+            $("#jed").click(function(){
+                $(".mpdammam").hide();
+                $(".mpbhrin").hide();
+                $(".mpjed").show();
+                
+            });
+            $("#bhrin").click(function(){
+                $(".mpdammam").hide();
+                $(".mpjed").hide();
+                $(".mpbhrin").show();
+                
+            });
+            
+        });
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
@@ -149,7 +171,7 @@
             <div class="row p-4">
                 <div class="col-md text-right p-3">
                     <small class="text-light">Download FTE-Profile</small>
-                    <a class=" mr-3" href="{% static 'blog/doc/FTE_Profile.pdf' %}"><img src="{% static 'blog/images/pdf.png' %}" alt="PDF"></a>
+                    <a class=" mr-3" href="{% static 'blog/doc/FTE_Profile.pdf' %}" target="_blank"><img src="{% static 'blog/images/pdf.png' %}" alt="PDF"></a>
                 </div>
                 <div class="col-md pl-3">
                     <img class="w-25" src="{% static 'blog/images/2030.png' %}" alt="2030">
@@ -158,7 +180,7 @@
 
             <div class="row bg-light">
                 <div class="col container text-center">
-                    <img class="mr-3" src="{% static 'blog/images/isoblow.png' %}" alt="2030">
+                    
                     <img class="mr-3" src="{% static 'blog/images/logosqas.png' %}" alt="2030">
                     <img class="mr-3" src="{% static 'blog/images/logoiso4.gif' %}" alt="2030" width="10%">
                     <img class="mr-3" src="{% static 'blog/images/logoiso5.jpg' %}" alt="2030" width="10%" height="100%">
@@ -180,28 +202,6 @@
     <script src="{% static 'blog/js/popper.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
-    <script>
-        $(document).ready(function(){
-            $("#dammam").click(function(){
-                $(".mpjed").hide();
-                $(".mpbhrin").hide();
-                $(".mpdammam").show();
-                
-            });
-            $("#jed").click(function(){
-                $(".mpdammam").hide();
-                $(".mpbhrin").hide();
-                $(".mpjed").show();
-                
-            });
-            $("#bhrin").click(function(){
-                $(".mpdammam").hide();
-                $(".mpjed").hide();
-                $(".mpbhrin").show();
-                
-            });
-            
-        });
-    </script>
+    
 </body>
 </html>

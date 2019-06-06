@@ -1,8 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.db.models.signals import post_save
 
 class Post(models.Model):
+    image_logo = models.ImageField(default='default.jpg', upload_to='logo_co')
+    image_post = models.ImageField(default='default.jpg', upload_to='post_co')
     title = models.CharField(max_length=100)
     content = models.TextField()
     post_date = models.DateTimeField(default=timezone.now)
@@ -22,12 +25,15 @@ class Comment(models.Model):
     nopersnt = models.CharField(max_length=10, verbose_name='Person Number', default= None)
     body = models.TextField(verbose_name='Order details')
     comment_date = models.DateTimeField(auto_now_add=True)
-    active = models.BooleanField(default=False)
-    post = models.ForeignKey(
-        Post, on_delete=models.CASCADE, related_name='comments'
-    )
+    
     def __str__(self):
-        return 'علق {} على {}.'.format(self.name, self.post)
+        return 'اسم العميل {}.'.format(self.name)
     
     class Meta:
         ordering = ('-comment_date', )
+
+def create_profile(sender, **kwarg):
+    if kwarg['created']:
+        user_profile = Post.objects.create(user=kwarg['instance'])
+
+post_save.connect(create_profile, sender=User)

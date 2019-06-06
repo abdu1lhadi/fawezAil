@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
 from .forms import NewCustomers
+from django.contrib.auth.models import User
 
 # Create your views here.
 
@@ -31,9 +32,7 @@ def post_detail(request, post_id):
     if request.method == 'POST':
         comment_form = NewCustomers(data=request.POST)
         if comment_form.is_valid():
-            new_comment = comment_form.save(commit=False)
-            new_comment.post = post
-            new_comment.save()
+            comment_form.save()
             comment_form = NewCustomers()
     else:
         comment_form = NewCustomers()
