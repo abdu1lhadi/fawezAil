@@ -24,6 +24,24 @@ def home(request):
 def about(request):
     return render(request, 'blog/about.html', {'title': 'ABOUT US'})
 
+def customs(request):
+    return render(request, 'blog/customs.html', {'title': 'Customs'})
+
+def equtpment(request):
+    return render(request, 'blog/equtpment.html', {'title': 'Equtpment'})
+
+def heavy_haulage(request):
+    return render(request, 'blog/heavy_haulage.html', {'title': 'Heavy_Haulage'})
+
+def jack_skidd(request):
+    return render(request, 'blog/jack_skidd.html', {'title': 'Jack_Skidd'})
+
+def transport(request):
+    return render(request, 'blog/transport.html', {'title': 'Transport'})
+
+def warehouse(request):
+    return render(request, 'blog/warehouse.html', {'title': 'warehouse'})
+
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     
