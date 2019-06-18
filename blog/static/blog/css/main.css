@@ -114,6 +114,13 @@ body{
 .bg-about{
     background-color: #FFFFFF;
 }
+
+.imgpage{
+    background-image: url("../images/transport.jpg");
+    background-position: center;
+    height: 300px;
+    width: 100%;
+}
 /* End About */
 
 /* Start footer */

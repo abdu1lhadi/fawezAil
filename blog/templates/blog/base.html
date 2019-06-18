@@ -3,29 +3,7 @@
 <!-- ,,, Fixed tag page ,,, -->
 <html>
 <head>
-    <script>
-        $(document).ready(function(){
-            $("#dammam").click(function(){
-                $(".mpjed").hide();
-                $(".mpbhrin").hide();
-                $(".mpdammam").show();
-                
-            });
-            $("#jed").click(function(){
-                $(".mpdammam").hide();
-                $(".mpbhrin").hide();
-                $(".mpjed").show();
-                
-            });
-            $("#bhrin").click(function(){
-                $(".mpdammam").hide();
-                $(".mpjed").hide();
-                $(".mpbhrin").show();
-                
-            });
-            
-        });
-    </script>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.min.css' %}">
@@ -206,6 +184,29 @@
     <script src="{% static 'blog/js/popper.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.min.js' %}"></script>
     <script src="{% static 'blog/js/fontawesome-all.min.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+            $("#dammam").click(function(){
+                $(".mpjed").hide();
+                $(".mpbhrin").hide();
+                $(".mpdammam").show();
+                
+            });
+            $("#jed").click(function(){
+                $(".mpdammam").hide();
+                $(".mpbhrin").hide();
+                $(".mpjed").show();
+                
+            });
+            $("#bhrin").click(function(){
+                $(".mpdammam").hide();
+                $(".mpjed").hide();
+                $(".mpbhrin").show();
+                
+            });
+            
+        });
+    </script>
     
 </body>
 </html>

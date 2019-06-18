@@ -42,6 +42,9 @@ def transport(request):
 def warehouse(request):
     return render(request, 'blog/warehouse.html', {'title': 'warehouse'})
 
+def clients(request):
+    return render(request, 'blog/clients.html', {'title': 'clients'})
+
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     
