@@ -16,7 +16,7 @@ def home(request):
         comment_form = NewCustomers()
     context = {
         'title': 'HOME',
-        'posts': Post.objects.all(),
+        'posts': Post.objects.all()[0:5],
         'comment_form': comment_form,
     }
     return render(request, 'blog/index.html', context)
@@ -35,6 +35,16 @@ def heavy_haulage(request):
 
 def jack_skidd(request):
     return render(request, 'blog/jack_skidd.html', {'title': 'Jack_Skidd'})
+
+def job(request):
+    return render(request, 'blog/job.html', {'title': 'JOB'})
+
+def list_news(request):
+    context = {
+        'title': 'List News',
+        'posts': Post.objects.all(),
+    }
+    return render(request, 'blog/listnews.html', context)
 
 def transport(request):
     return render(request, 'blog/transport.html', {'title': 'Transport'})

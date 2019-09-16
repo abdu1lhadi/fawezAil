@@ -18,6 +18,21 @@ class Post(models.Model):
     class Meta:
         ordering = ('-post_date', )
 
+class Jobnew(models.Model):
+    name_employee = models.CharField(max_length=100)
+    name_job = models.CharField(max_length=100)
+    certificate = models.CharField(max_length=100)
+    mobile_number = models.CharField(max_length=10)
+    description = models.TextField()
+    post_date = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.title
+    
+    class Meta:
+        ordering = ('-post_date', )
+
 class Comment(models.Model):
     name = models.CharField(max_length=50, verbose_name='Company Name')
     email = models.EmailField(verbose_name='Email')
