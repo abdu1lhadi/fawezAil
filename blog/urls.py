@@ -16,4 +16,6 @@ urlpatterns =[
     path('warehouse/', views.warehouse, name='warehouse'),
     path('detail/<int:post_id>/', views.post_detail, name='detail'),
     path('clients/', views.clients, name='clients'),
+    path('callus/', views.callus, name='callus'),
+    path('newrequest/', views.newrequest, name='newrequest'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -19,16 +19,15 @@ class Post(models.Model):
         ordering = ('-post_date', )
 
 class Jobnew(models.Model):
-    name_employee = models.CharField(max_length=100)
-    name_job = models.CharField(max_length=100)
-    certificate = models.CharField(max_length=100)
-    mobile_number = models.CharField(max_length=10)
-    description = models.TextField()
+    name_employee = models.CharField(max_length=100, verbose_name='Employee Name')
+    name_job = models.CharField(max_length=100, verbose_name='Job Name')
+    certificate = models.CharField(max_length=100, verbose_name='Certificate')
+    mobile_number = models.CharField(max_length=10, verbose_name='Mobile Number')
+    description = models.TextField(verbose_name='Description')
     post_date = models.DateTimeField(default=timezone.now)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.title
+        return self.name_job
     
     class Meta:
         ordering = ('-post_date', )
@@ -42,7 +41,7 @@ class Comment(models.Model):
     comment_date = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):
-        return 'اسم العميل {}.'.format(self.name)
+        return self.name
     
     class Meta:
         ordering = ('-comment_date', )

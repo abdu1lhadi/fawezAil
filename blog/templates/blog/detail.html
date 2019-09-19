@@ -12,6 +12,13 @@
     
     <div class="container bg-about p-2">
         <h3 class="border-bottom pb-3 mb-3 mt-5 text-center">New Request</h3>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{message.tags}}">
+            {{message}}
+        </div>
+        {% endfor %}
+        {% endif %}
         <div class="border p-4 mb-5 mt-3">
             <form method="POST">
                 {% csrf_token %} <!-- for security your form -->

@@ -121,17 +121,20 @@
     <div class="container">
         <h2 class="text-center hdNews">LATEST NEWS</h2>
         {% for post in posts %}
-        <div class="media row bg-light p-3 mb-3">
-            <div class="media-body col-md-10">
-            <h5 class="mt-0 mb-1"><a class="text-dark" href="{% url 'detail' post.id %}">{{post.title}}</a></h5>
-            <spa class="text-secondary"> Posted in {{post.post_date|date:'d-m-Y'}}</span><br>
-            {{post.content}}
-            </div>
-            <div class="col-md-2">
-              <img src="{{post.image_logo.url}}" class="ml-3 w-100" alt="Logo CO">
-            </div>
-            
-        </div>
+        <a class="list-group-item list-group-item-action p-0 m-0 row bg-light" href="{% url 'detail' post.id %}">
+          <div class="media p-3 mb-3">
+              <div class="media-body col-md-10">
+              <h5 class="mt-0 mb-1">{{post.title}}</h5>
+              <spa class="text-secondary"> Posted in {{post.post_date|date:'d-m-Y'}}</span><br>
+              {{post.content}}
+              </div>
+              <div class="col-md-2">
+                <img src="{{post.image_logo.url}}" class="ml-3 w-100" alt="Logo CO">
+              </div>
+              
+          </div>
+        </a>
+        
         {% endfor %}
         <div class="text-center p-3">
           <a href="{% url 'listnews' %}" class="btn btn-secondary btn-lg active border-0 CSF" role="button" aria-pressed="true">See More News</a>
@@ -144,6 +147,13 @@
 <!-- Strat form -->
 <div class="container bg-about p-3">
   <h3 class="border-bottom pb-3 mb-3 mt-5">New Request</h3>
+  {% if messages %}
+  {% for message in messages %}
+  <div class="alert alert-{{message.tags}}">
+      {{message}}
+  </div>
+  {% endfor %}
+  {% endif %}
   <div class="border p-4 mb-5 mt-3">
       <form method="POST">
           {% csrf_token %} <!-- for security your form -->

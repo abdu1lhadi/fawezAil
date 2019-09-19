@@ -5,16 +5,7 @@
 <div class="container bg-about p-3">
     
     
-    <h1 class="border-bottom ">NEW JOB</h1>
-    {% for  comment in comments %}
-    <ul class="p-3 comment">
-        <h6 class="border-bottom p-2">({{comment.name}}) <span 
-            class="text-secondary">{{comment.comment_date|date:'d-m-Y'}}</span></h6>
-        <p>{{comment.body}}</p>
-    </ul>
-    {% empty %}
-    <h2 class="text-center p-4">There is no jobs</h2>
-    {% endfor %}
+    <h1 class="border-bottom ">New Request</h1>
     {% if messages %}
     {% for message in messages %}
     <div class="alert alert-{{message.tags}}">
@@ -25,7 +16,7 @@
     <div class="border p-4 mb-5 mt-3">
         <form method="POST">
             {% csrf_token %} <!-- for security your form -->
-            {{job_form|crispy}}
+            {{comment_form|crispy}}
             <input class="btn btn-secondary" type="submit" value="Send request">
         </form>
     </div>

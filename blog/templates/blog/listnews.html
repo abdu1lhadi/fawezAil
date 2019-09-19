@@ -6,14 +6,16 @@
     
     <h1 class="border-bottom">List News</h1>
     {% for post in posts %}
-        <div class="media border p-3 mb-3">
+    <a class="list-group-item list-group-item-action p-0 m-0" href="{% url 'detail' post.id %}">
+        <div class="media p-3 mb-3">
             <div class="media-body">
-            <h5 class="mt-0 mb-1"><a class="text-dark" href="{% url 'detail' post.id %}">{{post.title}}</a></h5>
+            <h5 class="mt-0 mb-1">{{post.title}}</h5>
             <spa class="text-secondary"> Posted in {{post.post_date|date:'d-m-Y'}}</span><br>
             {{post.content}}
             </div>
             <img src="{{post.image_logo.url}}" class="ml-3 w-25" alt="Logo CO">
         </div>
+    </a>
     {% endfor %}
     
 </div>

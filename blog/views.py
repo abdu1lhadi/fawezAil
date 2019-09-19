@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Post, Comment
-from .forms import NewCustomers
+from .forms import NewCustomers, NewJob
 from django.contrib.auth.models import User
+from django.contrib import messages
 
 # Create your views here.
 
@@ -12,6 +13,9 @@ def home(request):
             new_comment = comment_form.save(commit=False)
             new_comment.save()
             comment_form = NewCustomers()
+            messages.success(request,
+                f'Thank you {new_comment}, Your request has been sent')
+            
     else:
         comment_form = NewCustomers()
     context = {
@@ -37,7 +41,22 @@ def jack_skidd(request):
     return render(request, 'blog/jack_skidd.html', {'title': 'Jack_Skidd'})
 
 def job(request):
-    return render(request, 'blog/job.html', {'title': 'JOB'})
+    if request.method == 'POST':
+        job_form = NewJob(data=request.POST)
+        if job_form.is_valid():
+            new_job = job_form.save(commit=False)
+            new_job.save()
+            job_form = NewJob()
+            messages.success(request,
+                f'Thank you , Your request has been sent')
+    else:
+        job_form = NewJob()
+    
+    context = {
+        'title': 'JOB',
+        'job_form': job_form,
+    }
+    return render(request, 'blog/job.html', context)
 
 def list_news(request):
     context = {
@@ -55,6 +74,26 @@ def warehouse(request):
 def clients(request):
     return render(request, 'blog/clients.html', {'title': 'clients'})
 
+def callus(request):
+    return render(request, 'blog/callus.html', {'title': 'callus'})
+
+def newrequest(request):
+    if request.method == 'POST':
+        comment_form = NewCustomers(data=request.POST)
+        if comment_form.is_valid():
+            new_comment = comment_form.save(commit=False)
+            new_comment.save()
+            comment_form = NewCustomers()
+            messages.success(request,
+                f'Thank you {new_comment}, Your request has been sent')
+    else:
+        comment_form = NewCustomers()
+    context = {
+        'title': 'newrequest',
+        'comment_form': comment_form,
+    }
+    return render(request, 'blog/newrequest.html', context)
+
 def post_detail(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
     
@@ -63,8 +102,11 @@ def post_detail(request, post_id):
     if request.method == 'POST':
         comment_form = NewCustomers(data=request.POST)
         if comment_form.is_valid():
-            comment_form.save()
+            new_comment = comment_form.save(commit=False)
+            new_comment.save()
             comment_form = NewCustomers()
+            messages.success(request,
+                f'Thank you {new_comment}, Your request has been sent')
     else:
         comment_form = NewCustomers()
     
