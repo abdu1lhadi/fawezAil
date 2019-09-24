@@ -6,11 +6,10 @@
     
     
     <h1 class="border-bottom ">NEW JOB</h1>
-    {% for  comment in comments %}
+    {% for Jobs in Jobnew %}
     <ul class="p-3 comment">
-        <h6 class="border-bottom p-2">({{comment.name}}) <span 
-            class="text-secondary">{{comment.comment_date|date:'d-m-Y'}}</span></h6>
-        <p>{{comment.body}}</p>
+        <h3 class="border-bottom p-2">{{Jobs.name_job}}</h3>
+        <p>{{Jobs.description}}</p>
     </ul>
     {% empty %}
     <h2 class="text-center p-4">There is no jobs</h2>

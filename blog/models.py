@@ -19,6 +19,17 @@ class Post(models.Model):
         ordering = ('-post_date', )
 
 class Jobnew(models.Model):
+    name_job = models.CharField(max_length=100, verbose_name='Job Name')
+    description = models.TextField(verbose_name='Description')
+    Job_date = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.name_job
+    
+    class Meta:
+        ordering = ('-Job_date', )
+
+class Jobrequest(models.Model):
     name_employee = models.CharField(max_length=100, verbose_name='Employee Name')
     name_job = models.CharField(max_length=100, verbose_name='Job Name')
     certificate = models.CharField(max_length=100, verbose_name='Certificate')

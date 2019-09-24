@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment
+from .models import Post, Comment, Jobnew
 from .forms import NewCustomers, NewJob
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -54,6 +54,7 @@ def job(request):
     
     context = {
         'title': 'JOB',
+        'Jobnew': Jobnew.objects.all(),
         'job_form': job_form,
     }
     return render(request, 'blog/job.html', context)

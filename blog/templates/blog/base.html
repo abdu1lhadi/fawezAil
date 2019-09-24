@@ -22,8 +22,9 @@
             <a class="navbar-brand col-md-2 bg-light m-0 p-3" href="{% url 'home' %}"><img src="{% static 'blog/images/final logo www.png' %}"
                  alt="Logo FTE" width="100%">
             </a>
-            
-            <div class="collapse navbar-collapse col-md-10 p-3" id="navbarSupportedContent">
+
+            <h3 class="col-md-4 text-white">Total Logistics Solution With Know How</h3>
+            <div class="collapse navbar-collapse col-md-6 p-3" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-3" >
                     <li class="nav-item active mr-2">
                         <a class="nav-link" href="{% url 'home' %}">HOME <span class="sr-only">(current)</span></a>
@@ -55,12 +56,17 @@
                     <li class="nav-item">
                             <a class="nav-link" href="{% url 'job' %}">JOB</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'callus' %}">CALL US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'newrequest' %}">NEW REQUEST</a>
+                    </li>
                     
                 </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item"><a class="nav-link" href="{% url 'callus' %}">CALL US</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{% url 'newrequest' %}">NEW REQUEST</a></li>
-                </ul>
+                <!-- <ul class="navbar-nav ml-auto">
+                    
+                </ul> -->
                 
             </div>   
         </nav>
