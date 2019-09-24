@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
-from django.db.models.signals import post_save
 
 class Post(models.Model):
     image_logo = models.ImageField(default='default.jpg', upload_to='logo_co')
@@ -57,8 +56,3 @@ class Comment(models.Model):
     class Meta:
         ordering = ('-comment_date', )
 
-def create_profile(sender, **kwarg):
-    if kwarg['created']:
-        user_profile = Post.objects.create(user=kwarg['instance'])
-
-post_save.connect(create_profile, sender=User)
