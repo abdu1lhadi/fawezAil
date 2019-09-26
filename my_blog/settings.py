@@ -24,7 +24,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'q_4*dgc!v&8oyjssi^f351#k1wr*b6xitnmod)ptw@s7^pa0@#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['fwazealiapp.herokuapp.com']
 
@@ -134,5 +134,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+AWS_ACCESS_KEY_ID = 'AKIA6AQQWF2QJF7MDZ4I'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'fwazeali'
+
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+# STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.me-south-1.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 
 django_heroku.settings(locals())
