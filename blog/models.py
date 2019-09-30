@@ -34,6 +34,7 @@ class Jobrequest(models.Model):
     certificate = models.CharField(max_length=100, verbose_name='Certificate')
     mobile_number = models.CharField(max_length=10, verbose_name='Mobile Number')
     description = models.TextField(verbose_name='Description')
+    cv = models.FileField(verbose_name='Uploads CV')
     post_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
