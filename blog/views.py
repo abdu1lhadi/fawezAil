@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from .models import Post, Comment, Jobnew
+from .models import Post, Comment, Jobnew, Jobrequest
 from .forms import NewCustomers, NewJob
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -42,11 +42,10 @@ def jack_skidd(request):
 
 def job(request):
     if request.method == 'POST':
-        job_form = NewJob(data=request.POST)
+        job_form = NewJob(request.POST, request.FILES)
         if job_form.is_valid():
             new_job = job_form.save(commit=False)
             new_job.save()
-            job_form = NewJob()
             messages.success(request,
                 f'Thank you , Your request has been sent')
     else:

@@ -29,12 +29,12 @@ class Jobnew(models.Model):
         ordering = ('-Job_date', )
 
 class Jobrequest(models.Model):
-    name_employee = models.CharField(max_length=100, verbose_name='Employee Name')
-    name_job = models.CharField(max_length=100, verbose_name='Job Name')
-    certificate = models.CharField(max_length=100, verbose_name='Certificate')
-    mobile_number = models.CharField(max_length=10, verbose_name='Mobile Number')
-    description = models.TextField(verbose_name='Description')
-    cv = models.FileField(verbose_name='Uploads CV')
+    name_employee = models.CharField(max_length=100, verbose_name='Employee Name', default= None)
+    name_job = models.CharField(max_length=100, verbose_name='Job Name', default= None)
+    certificate = models.CharField(max_length=100, verbose_name='Certificate', default= None)
+    mobile_number = models.CharField(max_length=10, verbose_name='Mobile Number', default= None)
+    uploaad_cv = models.FileField(upload_to='upload_cv', null=True, blank=True)
+    description = models.TextField(verbose_name='Description', default= None)
     post_date = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
