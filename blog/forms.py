@@ -9,4 +9,4 @@ class NewCustomers(forms.ModelForm):
 class NewJob(forms.ModelForm):
     class Meta:
         model = Jobrequest
-        fields = ('name_employee', 'name_job' ,'certificate','mobile_number', 'description', 'uploaad_cv')
+        fields = ('name_employee', 'name_job' ,'certificate','mobile_number', 'description')

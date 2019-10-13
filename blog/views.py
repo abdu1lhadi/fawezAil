@@ -3,6 +3,7 @@ from .models import Post, Comment, Jobnew, Jobrequest
 from .forms import NewCustomers, NewJob
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.core.mail import send_mail
 
 # Create your views here.
 
@@ -41,11 +42,19 @@ def jack_skidd(request):
     return render(request, 'blog/jack_skidd.html', {'title': 'Jack_Skidd'})
 
 def job(request):
+    
     if request.method == 'POST':
         job_form = NewJob(request.POST, request.FILES)
         if job_form.is_valid():
             new_job = job_form.save(commit=False)
             new_job.save()
+            send_mail(
+                'Subject here',
+                'Here is the message.',
+                'alshabibicar@gmail.com',
+                ['kmoog1@hotmail.com'],
+                fail_silently=False
+            )
             messages.success(request,
                 f'Thank you , Your request has been sent')
     else:

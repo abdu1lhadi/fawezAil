@@ -124,9 +124,9 @@
         <a class="list-group-item list-group-item-action p-0 m-0 row bg-light" href="{% url 'detail' post.id %}">
           <div class="media p-3 mb-3">
               <div class="media-body col-md-10">
-              <h5 class="mt-0 mb-1">{{post.title}}</h5>
+              <h2 class="mt-0 mb-1 text-body font-weight-bold">{{post.title}}</h2>
               <spa class="text-secondary"> Posted in {{post.post_date|date:'d-m-Y'}}</span><br>
-              {{post.content}}
+              <p class="text-body" style="font-size: 20px;">{{post.content}}</p>
               </div>
               <div class="col-md-2">
                 <img src="{{post.image_logo.url}}" class="ml-3 w-100" alt="Logo CO">
@@ -158,7 +158,7 @@
       <form method="POST">
           {% csrf_token %} <!-- for security your form -->
           {{comment_form|crispy}}
-          <input class="btn btn-secondary" type="submit" value="Send request">
+          <input class="btn btn-secondary" type="submit" value="Send Request">
       </form>
   </div>
 </div>

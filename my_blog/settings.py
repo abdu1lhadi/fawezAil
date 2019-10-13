@@ -135,6 +135,16 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'alshabibicar@gmail.com'
+EMAIL_HOST_PASSWORD = 'SHsh11223344'
+EMAIL_USE_TLS = True
+EMAIL_USE_SSL = False
+
+
+
 AWS_ACCESS_KEY_ID = 'AKIA6AQQWF2QJF7MDZ4I'
 AWS_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'fwazeali'
