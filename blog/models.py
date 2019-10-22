@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.core.validators import MinLengthValidator, int_list_validator
 
 class Post(models.Model):
     image_logo = models.ImageField(default='default.jpg', upload_to='logo_co')
@@ -32,7 +33,7 @@ class Jobrequest(models.Model):
     name_employee = models.CharField(max_length=100, verbose_name='Employee Name', default= None)
     name_job = models.CharField(max_length=100, verbose_name='Job Name', default= None)
     certificate = models.CharField(max_length=100, verbose_name='Certificate', default= None)
-    mobile_number = models.CharField(max_length=10, verbose_name='Mobile Number', default= None)
+    mobile_number = models.IntegerField(blank=True, null=True, verbose_name='Mobile_number', default= None)
     uploaad_cv = models.FileField(upload_to='upload_cv', max_length=100, null=True, blank=True)
     description = models.TextField(verbose_name='Description', default= None)
     post_date = models.DateTimeField(default=timezone.now)
@@ -42,6 +43,7 @@ class Jobrequest(models.Model):
     
     class Meta:
         ordering = ('-post_date', )
+
 
 class Comment(models.Model):
     name = models.CharField(max_length=50, verbose_name='Company Name')
