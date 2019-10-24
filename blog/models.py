@@ -34,6 +34,7 @@ class Jobrequest(models.Model):
     name_job = models.CharField(max_length=100, verbose_name='Job Name', default= None)
     certificate = models.CharField(max_length=100, verbose_name='Certificate', default= None)
     mobile_number = models.IntegerField(blank=True, null=True, verbose_name='Mobile_number', default= None)
+    email_employe = models.EmailField(max_length=100, null=False, default= None, verbose_name='Email')
     uploaad_cv = models.FileField(upload_to='upload_cv', max_length=100, null=True, blank=True)
     description = models.TextField(verbose_name='Description', default= None)
     post_date = models.DateTimeField(default=timezone.now)
@@ -49,7 +50,7 @@ class Comment(models.Model):
     name = models.CharField(max_length=50, verbose_name='Company Name')
     email = models.EmailField(verbose_name='Email')
     nepersnt = models.CharField(max_length=50, verbose_name='Person Name', default= None)
-    nopersnt = models.CharField(max_length=10, verbose_name='Person Number', default= None)
+    nopersnt = models.IntegerField(blank=True, null=True, default= None)
     body = models.TextField(verbose_name='Order Details')
     comment_date = models.DateTimeField(auto_now_add=True)
     

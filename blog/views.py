@@ -11,8 +11,16 @@ def home(request):
     if request.method == 'POST':
         comment_form = NewCustomers(data=request.POST)
         if comment_form.is_valid():
+            email = request.POST.get("email")
             new_comment = comment_form.save(commit=False)
             new_comment.save()
+            send_mail(
+                'FTE - LOGISTICE',
+                'Your Request Has Been Received , We Will Communicate With You As Soon As Possible',
+                'alshabibicar@gmail.com',
+                [email],
+                fail_silently=False
+            )
             comment_form = NewCustomers()
             messages.success(request,
                 f'Thank you {new_comment}, Your request has been sent')
@@ -46,17 +54,18 @@ def job(request):
     if request.method == 'POST':
         job_form = NewJob(request.POST, request.FILES)
         if job_form.is_valid():
+            email = request.POST.get("email_employe")
             new_job = job_form.save(commit=False)
             new_job.save()
             send_mail(
-                'Subject here',
-                'Here is the message.',
+                'FTE - LOGISTICE',
+                'Your Request Has Been Received Please Send Your CV To This Email And We Will Contact You As Soon As Possible',
                 'alshabibicar@gmail.com',
-                ['kmoog1@hotmail.com'],
+                [email],
                 fail_silently=False
             )
             messages.success(request,
-                f'Thank you , Your request has been sent')
+                f'Thank You , Please Check Your Email')
     else:
         job_form = NewJob()
     
@@ -90,8 +99,16 @@ def newrequest(request):
     if request.method == 'POST':
         comment_form = NewCustomers(data=request.POST)
         if comment_form.is_valid():
+            email = request.POST.get("email")
             new_comment = comment_form.save(commit=False)
             new_comment.save()
+            send_mail(
+                'FTE - LOGISTICE',
+                'Your Request Has Been Received , We Will Communicate With You As Soon As Possible',
+                'alshabibicar@gmail.com',
+                [email],
+                fail_silently=False
+            )
             comment_form = NewCustomers()
             messages.success(request,
                 f'Thank you {new_comment}, Your request has been sent')
@@ -111,8 +128,16 @@ def post_detail(request, post_id):
     if request.method == 'POST':
         comment_form = NewCustomers(data=request.POST)
         if comment_form.is_valid():
+            email = request.POST.get("email")
             new_comment = comment_form.save(commit=False)
             new_comment.save()
+            send_mail(
+                'FTE - LOGISTICE',
+                'Your Request Has Been Received , We Will Communicate With You As Soon As Possible',
+                'alshabibicar@gmail.com',
+                [email],
+                fail_silently=False
+            )
             comment_form = NewCustomers()
             messages.success(request,
                 f'Thank you {new_comment}, Your request has been sent')

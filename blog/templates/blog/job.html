@@ -12,7 +12,7 @@
         <p>{{Jobs.description}}</p>
     </ul>
     {% empty %}
-    <h2 class="text-center p-4">There is no jobs</h2>
+    <h2 class="text-center p-4">There Is No Jobs</h2>
     {% endfor %}
     {% if messages %}
     {% for message in messages %}
@@ -25,7 +25,7 @@
         <form method="POST">
             {% csrf_token %} <!-- for security your form -->
             {{job_form|crispy}}
-            <input class="btn btn-secondary" type="submit" value="Send request">
+            <input class="btn btn-secondary" type="submit" value="Send Request">
         </form>
     </div>
     
